@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 textInput.value = generatedTexts.join(' ');
                 testRegex();
+            } else {
+                errorMessage.textContent = 'Erro: A biblioteca de geração (RandExp) não carregou corretamente. Verifique sua conexão.';
             }
         } catch (e) {
             errorMessage.textContent = 'Erro ao gerar texto: ' + e.message;
