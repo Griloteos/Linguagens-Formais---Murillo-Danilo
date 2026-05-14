@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração de Expressões Regulares</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Demonstração de Expressões Regulares</h1>
+            <p>Teste padrões (regex) em um texto e veja as correspondências em tempo real. Os textos de teste também são gerados automaticamente!</p>
+        </header>
+
+        <div class="main-content">
+            <div class="tester-section">
+                <div class="input-group">
+                    <label for="example-select">Exemplos (inspirados no PDF):</label>
+                    <select id="example-select">
+                        <option value="">Selecione um exemplo...</option>
+                        <option value="ex1">Contém 'cc'</option>
+                        <option value="ex2">Um '0' entre '1's</option>
+                        <option value="ex3">Exatamente dois 'a's</option>
+                        <option value="ex4">Inicia com 'a', termina com 'b' ou 'c'</option>
+                        <option value="ex5">Apenas 'a', 'b', 'c' (mínimo 1)</option>
+                        <option value="ex6">Validar Email</option>
+                        <option value="ex7">Validar Data (DD/MM/AAAA)</option>
+                        <option value="ex8">Validar Telefone (BR)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="regex-input">Expressão Regular (Gera textos automaticamente):</label>
+                    <input type="text" id="regex-input" placeholder="(a|b|c)+">
+                </div>
+
+                <div class="input-group">
+                    <label for="text-input">Texto para Teste (Gerado ou Manual):</label>
+                    <textarea id="text-input" placeholder="Insira o texto aqui ou deixe a expressão regular gerar para você..."></textarea>
+                </div>
+                <button id="btn-generate" style="margin-bottom: 20px;">Gerar Novos Textos a partir da Regex</button>
+
+                <div class="results-section">
+                    <h3>Resultados</h3>
+                    <div id="error-message" style="color: var(--error-color); font-weight: bold; margin-bottom: 10px;"></div>
+                    <p><strong>Texto com Destaques:</strong></p>
+                    <div id="highlighted-output"></div>
+                    <p style="margin-top: 20px;"><strong>Correspondências Encontradas (<span id="match-count">0</span>):</strong></p>
+                    <div id="matches-list"></div>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <h3>Sintaxe Básica (Cola)</h3>
+                <p><code>|</code> : OU (<code>a|b</code>)</p>
+                <p><code>*</code> : 0 ou mais vezes</p>
+                <p><code>+</code> : 1 ou mais vezes</p>
+                <p><code>?</code> : 0 ou 1 vez</p>
+                <p><code>()</code>: Agrupamento</p>
+                <p><code>[]</code>: Conjunto de caracteres (<code>[abc]</code>)</p>
+                <p><code>[^]</code>: Negação de conjunto (<code>[^abc]</code>)</p>
+                <p><code>.</code> : Qualquer caractere</p>
+                <p><code>\d</code>: Dígito (<code>[0-9]</code>)</p>
+                <p><code>\w</code>: Caractere alfanumérico</p>
+                <p><code>^</code> : Início da string</p>
+                <p><code>$</code> : Fim da string</p>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Biblioteca para gerar strings a partir da regex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randexp/0.5.3/randexp.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
